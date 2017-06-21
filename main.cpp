@@ -10,7 +10,7 @@ char menu();
 int main()
 {
 	char choice;
-	int number;
+	int maxSizeLibrary;
 	Library lib;
 
 	do {
@@ -19,37 +19,35 @@ int main()
         {
 			case '1': {
 				std::cout << "How many books can fit in library: " << std::endl;
-				std::cin >> number;
-				lib.setLibraySize(number);
+				std::cin >> maxSizeLibrary;
+				lib.sizeInteger(maxSizeLibrary);
 				break;
 			}
 			case '2': {
 				int howManyBooks {0};
 				std::cout << "How many books do you want to add?" << std::endl;
 				std::cin >> howManyBooks;
-
-				Book *howManyBooksP = new Book[howManyBooks];
-
-				for (int i = 0; i < howManyBooks; i++) {
-					howManyBooksP[i].addBook(i);
-				}
-				for (int j = 0; j <  howManyBooks; j++) {
-
-					lib.addBook2Lib(*howManyBooksP, j);
-					std::cout << "Book nr " << j << " added to library" << std::endl;
-				}
+				lib.addBook2Lib(howManyBooks);
 				break;
 			}
 			case '3':
 				std::cout << "borrow book from a library" << std::endl;
-				//lib.addBook2Lib();
-
+				std::cout << "please provide book ID you wish to borrow: ";
+				int book2Borrow;
+				std::cin >> book2Borrow;
+				lib.borrowBook(book2Borrow);
 				break;
 
             case '4':
                 std::cout << "return book to a library" << std::endl;
 
                 break;
+			case '5':
+				std::cout << "Print all books in library" << std::endl;
+				std::system("clear");
+				lib.printAll();
+
+				break;
             default:
                 std::cout << "Exit" << std::endl;
         }
@@ -81,6 +79,7 @@ char menu() {
     std::cout << "2 - Add books to library" << std::endl; //todo create function to add new book to library
     std::cout << "3 - Borrow book" << std::endl; //todo create user that can borow book - user can list all books in library
     std::cout << "4 - Return book" << std::endl; // todo create function that user can return book - user can list books he/she have
+	std::cout << "5 - Print out all books" << std::endl;
 	std::cout << "9 - to Quit" << std::endl;
     std::cin >> choice;
     return choice;

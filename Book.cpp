@@ -15,6 +15,7 @@ Book::Book():author("n/a"), title("n/a"), publicationYear(0) // ID(0)
 int Book::counterNumber()
 { return counter;}
 
+/*
 int Book::addBook(int howManyBooks)
 {
     std::cout << "Book ID:" << ID << std::endl;
@@ -26,6 +27,7 @@ int Book::addBook(int howManyBooks)
     std::cin >> publicationYear;
     return ID;
 }
+*/
 
 void Book::getBook()
 {

@@ -8,11 +8,13 @@
 
 class Person : public Library {
 
-    Library user;
-	Book book;
+    Library user[2];
+
 
 public:
- 	void borrowBook(int HowManybooks);
+	friend class Libray;
+ 	void borrowBook();
+	void returnBook();
 
 };
 

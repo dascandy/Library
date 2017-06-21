@@ -9,20 +9,19 @@
 
 class Book
 {
-    std::string author;
-    std::string title;
-    int publicationYear;
-    int ID;
-    static int counter;
-
 public:
+	std::string author;
+	std::string title;
+	int publicationYear;
+	int ID;
+
+    static int counter;
     friend class Library;
     Book();
-    ~Book();
     int counterNumber();
-    int addBook(int howManyBooks);
     int getID() { return ID;}
     void getBook();
+	~Book();
 };
 
 #endif //CLIBRARYBOOKS_BOOK_H

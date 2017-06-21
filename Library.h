@@ -12,13 +12,15 @@ class Library
 {
 private:
     int maxAmountOfBooks;
-    Book* pointerBook;
+    Book* pBook;
 
 public:
     Library();
-    void setLibraySize(int maxSize);
-    void addBook2Lib(Book book_, int i);
-    void getBook(int i);
+    void setLibraySize(Book*& pBook, int maxSize);
+	int sizeInteger(int a);
+    void addBook2Lib(int i);
+    void borrowBook(int i);
+	void printAll();
     ~Library();
 };
 #endif //CLIBRARYBOOKS_LIBRARAY_H
