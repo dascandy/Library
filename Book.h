@@ -9,18 +9,19 @@
 
 class Book
 {
-public:
+protected:
+	static int counter;
+	int ID;
 	std::string author;
 	std::string title;
 	int publicationYear;
-	int ID;
-
-    static int counter;
-    friend class Library;
-    Book();
-    int counterNumber();
-    int getID() { return ID;}
-    void getBook();
+public:
+	Book();
+	int getID() { return ID;}
+	friend class Library;
+	friend class Person;
+	int counterNumber() {return counter;}
+  //  void getBook();
 	~Book();
 };
 

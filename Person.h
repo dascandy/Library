@@ -6,15 +6,15 @@
 #define LIBRARY_PERSON_H
 #include "Library.h"
 
-class Person : public Library {
-
-    Library user[2];
-
-
+class Person
+{
+protected:
+	Book userBook;
 public:
-	friend class Libray;
- 	void borrowBook();
+	void borrowBook(Book book);
 	void returnBook();
+	void print();
+
 
 };
 

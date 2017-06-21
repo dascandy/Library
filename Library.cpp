@@ -4,10 +4,10 @@
 #include <iostream>
 #include "Book.h"
 #include "Library.h"
+#include "Person.h"
+
 Library::Library() //: maxAmountOfBooks{0}
-{
-   // new  Book[maxAmountOfBooks];
-}
+{}
 
 void Library::setLibraySize(Book*& pBook, int maxSize) {
 	maxAmountOfBooks = maxSize;
@@ -24,7 +24,6 @@ void Library::addBook2Lib(int i) {
 		std::cin >> pBook[j].author;
 		std::cout << "Publication year: ";
 		std::cin >> pBook[j].publicationYear;
-		// return pBook[j].ID;
 	}
 	/*else {
 		std::cout << "Library full" << std::endl;
@@ -36,12 +35,12 @@ void Library::addBook2Lib(int i) {
 }
 
 
-int Library::sizeInteger(int a)
+void Library::sizeInteger(int a)
 {
 	setLibraySize(*&pBook, a);
 }
 
-}
+
 void Library::printAll() {
 	for (int i = 0; i < maxAmountOfBooks; i++) {
 
@@ -64,18 +63,14 @@ void Library::printAll() {
 void Library::borrowBook(int i)
 {
 
-	//creating tmp Book object to borrow book from library
-	Book tmpBook;
-	tmpBook.ID = pBook[i].ID;
-	tmpBook.title = pBook[i].title;
-	tmpBook.author = pBook[i].author;
-	tmpBook.publicationYear = pBook[i].publicationYear;
+	//creating userBook object to borrow book from library
+	Person person;
 
+	person.borrowBook(pBook[i]);
 	// assign NULL values to borrowed book
-	pBook[i].ID = -100;
-	pBook[i].title = "xxx";
-	pBook[i].author = "XXX";
-	pBook[i].publicationYear = -9999;
+	pBook[i].title = "Book borrowed";
+	pBook[i].author = "Book borrowed";
+	pBook[i].publicationYear = -9999; // book is borrowed
 
 	// print space where book was to confirm if is empty
 	std::system("clear");
@@ -87,14 +82,14 @@ void Library::borrowBook(int i)
 
 	//print book that is borrowed
 	std::cout << "Print tmp book" << std::endl;
-	std::cout << "Book ID: " << tmpBook.ID << std::endl;
-	std::cout << "Book Title: " << tmpBook.title << std::endl;
-	std::cout << "Book Author: " << tmpBook.author << std::endl;
-	std::cout << "Book year: " << tmpBook.publicationYear << std::endl;
+	/*std::cout << "Book ID: " << Person::userBook.ID << std::endl;
+	std::cout << "Book Title: " << Person::userBook.title << std::endl;
+	std::cout << "Book Author: " << Person::userBook.author << std::endl;
+	std::cout << "Book year: " << Person::userBook.publicationYear << std::endl;*/
 }
 
 Library::~Library()
 {
     std::cout << "Memory freed in Library Class" << std::endl;// todo delete pointer!
-    //delete []pBook;
+    delete []pBook;
 }
