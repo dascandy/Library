@@ -66,26 +66,34 @@ void Library::borrowBook(int i)
 	//creating userBook object to borrow book from library
 	Person person;
 
-	person.borrowBook(pBook[i]);
+	person.borrowBookP(pBook, i);
+
+	borrowBookPerson(person, i);
+
 	// assign NULL values to borrowed book
 	pBook[i].title = "Book borrowed";
 	pBook[i].author = "Book borrowed";
-	pBook[i].publicationYear = -9999; // book is borrowed
+	pBook[i].publicationYear = -9999; // book is borrowed -999 is magic number dont like this!!!
 
 	// print space where book was to confirm if is empty
-	std::system("clear");
-	std::cout << "Print empty space in Library" << std::endl;
+	//std::system("clear");
+	/*std::cout << "Print empty space in Library" << std::endl;
     std::cout << "Book ID: " << pBook[i].ID << std::endl;
     std::cout << "Book Title: " << pBook[i].title << std::endl;
     std::cout << "Book Author: " << pBook[i].author << std::endl;
     std::cout << "Book year: " << pBook[i].publicationYear << std::endl;
-
+*/
 	//print book that is borrowed
-	std::cout << "Print tmp book" << std::endl;
+	//std::cout << "Print tmp book" << std::endl;
 	/*std::cout << "Book ID: " << Person::userBook.ID << std::endl;
 	std::cout << "Book Title: " << Person::userBook.title << std::endl;
 	std::cout << "Book Author: " << Person::userBook.author << std::endl;
 	std::cout << "Book year: " << Person::userBook.publicationYear << std::endl;*/
+}
+
+Person& Library::borrowBookPerson(Person& p, int i)
+{
+
 }
 
 Library::~Library()

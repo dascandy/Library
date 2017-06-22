@@ -13,7 +13,7 @@ int main()
 	char choice;
 	int maxSizeLibrary;
 	Library lib;
-	Person person;
+
 
 	do {
 		choice = menu();
@@ -37,7 +37,7 @@ int main()
 				std::cout << "please provide book ID you wish to borrow: ";
 				int book2Borrow;
 				std::cin >> book2Borrow;
-				lib.borrowBook(book2Borrow+1);
+				lib.borrowBook(book2Borrow-1);
 				break;
 
             case '4':
@@ -50,10 +50,13 @@ int main()
 				lib.printAll();
 				break;
 			case '6':
+			{
+				Person person;
 				std::cout << "Print books in user posesion" << std::endl;
 				std::system("clear");
 				person.print();
 				break;
+			}
             default:
                 std::cout << "Exit" << std::endl;
         }
@@ -61,18 +64,7 @@ int main()
     }while (choice != '9');
 
     system("clear");
-/*
 
-    for (int i = 0; i < howManyBooks; i++)
-    {
-        std::cout << "Book for ya sir: " << i << std::endl;
-        lib.getBook(i);
-        std::cout << std::endl;
-    }
-*/
-
-    //delete []howManyBooksP;  // todo when do delete memory?
-    std::cout << "Memory freed in main" << std::endl;
     return 0;
 }
 

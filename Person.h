@@ -9,13 +9,12 @@
 class Person
 {
 protected:
-	Book userBook;
+	Book   userBook;
 public:
-	void borrowBook(Book book);
+	void borrowBookP(Book* pBook, int i);
 	void returnBook();
+	friend class Library;
 	void print();
-
-
 };
 
 
