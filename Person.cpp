@@ -3,21 +3,15 @@
 //
 
 #include "Person.h"
-//#include "library.h"
+#include "library.h"
 #include <iostream>
 
-void Person::borrowBookP(Book* pBook, int i)
+void Person::borrowBookP(Book* pBB)
 {
-	userBook.ID = pBook[i].ID;
-	userBook.title = pBook[i].title;
-	userBook.author = pBook[i].author;
-	userBook.publicationYear = pBook[i].publicationYear;
-
-	/*std::cout << userBook.ID << std::endl;
-	std::cout << userBook.title << std::endl;
-	std::cout << userBook.author << std::endl;
-	std::cout << userBook.publicationYear << std::endl;
-*/
+	userBook.ID = pBB->ID;
+	userBook.title = pBB->title;
+	userBook.author = pBB->author;
+	userBook.publicationYear = pBB->publicationYear;
 }
 
 void Person::print()
@@ -27,4 +21,12 @@ void Person::print()
 	std::cout << "Book Title: " <<userBook.title << std::endl;
 	std::cout << "Book Author: " << userBook.author << std::endl;
 	std::cout << "Book year: " << userBook.publicationYear << std::endl;
+}
+
+void Person::returnBook(Book* pBB) {
+
+	pBB->ID = userBook.ID;
+	pBB->title = userBook.title;
+	pBB->author = userBook.author;
+	pBB->publicationYear = userBook.publicationYear;
 }

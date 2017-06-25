@@ -19,8 +19,8 @@ public:
     void setLibraySize(Book*& pBook, int maxSize);
 	void sizeInteger(int a);
     void addBook2Lib(int i);
-    void borrowBook(int i);
-	Person& borrowBookPerson(Person& p, int i);
+    Book borrowBook(int i);
+
 	void printAll();
 	friend class Person;
     ~Library();

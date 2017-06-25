@@ -11,8 +11,8 @@ class Person
 protected:
 	Book   userBook;
 public:
-	void borrowBookP(Book* pBook, int i);
-	void returnBook();
+	void borrowBookP(Book* pBB);
+	void returnBook(Book* pBB);
 	friend class Library;
 	void print();
 };

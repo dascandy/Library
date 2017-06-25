@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "Library.h"
-//#include "Book.h"
+#include "Book.h"
 #include "Person.h"
 
 char menu();
@@ -13,6 +13,9 @@ int main()
 	char choice;
 	int maxSizeLibrary;
 	Library lib;
+	Person per;
+	Book BorrowedBook;
+	Book* pBorrowedBook = &BorrowedBook;
 
 
 	do {
@@ -32,16 +35,18 @@ int main()
 				lib.addBook2Lib(howManyBooks);
 				break;
 			}
-			case '3':
+			case '3':{
 				std::cout << "borrow book from a library" << std::endl;
 				std::cout << "please provide book ID you wish to borrow: ";
 				int book2Borrow;
 				std::cin >> book2Borrow;
-				lib.borrowBook(book2Borrow-1);
-				break;
+				BorrowedBook = lib.borrowBook(book2Borrow-2);
+				per.borrowBookP(pBorrowedBook);
+				break;}
 
             case '4':
                 std::cout << "return book to a library" << std::endl;
+				per.returnBook(pBorrowedBook);
 
                 break;
 			case '5':
@@ -51,10 +56,10 @@ int main()
 				break;
 			case '6':
 			{
-				Person person;
-				std::cout << "Print books in user posesion" << std::endl;
+				std::cout << "Print books in user possession" << std::endl;
 				std::system("clear");
-				person.print();
+				per.print();
+
 				break;
 			}
             default:
