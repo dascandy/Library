@@ -18,7 +18,7 @@ private:
 public:
 	Library();
 	~Library();
-	void size(int a);
+	void setSize(int a);
 	void addBook2Lib(int i);
 	Book *borrowBook(int i);
 	void returnBook(int i, Book* b);

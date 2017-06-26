@@ -3,10 +3,10 @@
 //
 
 #include "Person.h"
-#include "library.h"
+#include "Library.h"
 #include <iostream>
 
-void Person::borrowBookP(Book* pBB)
+void Person::borrowBook(Book* pBB)
 {
 	myBook = pBB;
 }
@@ -15,10 +15,7 @@ void Person::print() const
 {
 	if (myBook) {
 		std::cout << "Book that is in user possession" << std::endl;
-		std::cout << "Book ID: " << userBook.ID << std::endl;
-		std::cout << "Book Title: " <<userBook.title << std::endl;
-		std::cout << "Book Author: " << userBook.author << std::endl;
-		std::cout << "Book year: " << userBook.publicationYear << std::endl;
+                myBook->print();
 	} else {
 		std::cout << "Have no book in user possession" << std::endl;
 	}

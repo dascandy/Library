@@ -16,7 +16,9 @@ protected:
 	std::string title;
 	int publicationYear;
 public:
+	Book(std::string author, std::string title, int publicationYear);
 	Book();
+	void print() const;
 	int getID() const { return ID;}
 };
 
