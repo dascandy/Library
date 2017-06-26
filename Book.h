@@ -11,18 +11,13 @@ class Book
 {
 protected:
 	static int counter;
-	int ID;
+	int ID = counter++;
 	std::string author;
 	std::string title;
 	int publicationYear;
 public:
 	Book();
-	int getID() { return ID;}
-	friend class Library;
-	friend class Person;
-	int counterNumber() {return counter;}
-  //  void getBook();
-	~Book();
+	int getID() const { return ID;}
 };
 
 #endif //CLIBRARYBOOKS_BOOK_H

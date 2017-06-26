@@ -8,37 +8,26 @@
 
 void Person::borrowBookP(Book* pBB)
 {
-	userBook.ID = pBB->ID;
-	userBook.title = pBB->title;
-	userBook.author = pBB->author;
-	userBook.publicationYear = pBB->publicationYear;
+	myBook = pBB;
 }
 
-void Person::print()
+void Person::print() const
 {
-	std::cout << "Book that is in user possession" << std::endl;
-	std::cout << "Book ID: " << userBook.ID << std::endl;
-	std::cout << "Book Title: " <<userBook.title << std::endl;
-	std::cout << "Book Author: " << userBook.author << std::endl;
-	std::cout << "Book year: " << userBook.publicationYear << std::endl;
+	if (myBook) {
+		std::cout << "Book that is in user possession" << std::endl;
+		std::cout << "Book ID: " << userBook.ID << std::endl;
+		std::cout << "Book Title: " <<userBook.title << std::endl;
+		std::cout << "Book Author: " << userBook.author << std::endl;
+		std::cout << "Book year: " << userBook.publicationYear << std::endl;
+	} else {
+		std::cout << "Have no book in user possession" << std::endl;
+	}
 }
 
-void Person::returnBook(Book* pBB) {
-
-		pBB->ID = userBook.ID;
-		pBB->title = userBook.title;
-		pBB->author = userBook.author;
-		pBB->publicationYear = userBook.publicationYear;
-
-		// null space in user possession
-		nullPlace();
-
+Book* Person::returnBook() {
+	Book* returnBook = myBook;
+	myBook = nullptr;
+	return returnBook;
 }
-void Person::nullPlace()
-{
-	// assign NULL values to borrowed book
-	userBook.title = "Book borrowed";
-	userBook.author = "Book borrowed";
-	userBook.publicationYear = -9999; // book is borrowed -999 is magic number don't like this!!!
 
-};
+

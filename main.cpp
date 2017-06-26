@@ -11,21 +11,17 @@ char menu();
 int main()
 {
 	char choice;
-	int maxSizeLibrary;
 	Library lib;
 	Person per;
-	Book BorrowedBook;
-	Book* pBorrowedBook = &BorrowedBook;
-
-
 	do {
 		choice = menu();
 		switch (choice)
-        {
+			{
 			case '1': {
 				std::cout << "How many books can fit in library: " << std::endl;
+								size_t maxSizeLibrary;
 				std::cin >> maxSizeLibrary;
-				lib.sizeInteger(maxSizeLibrary);
+				lib.setSize(maxSizeLibrary);
 				break;
 			}
 			case '2': {
@@ -44,11 +40,11 @@ int main()
 				per.borrowBookP(pBorrowedBook);
 				break;}
 
-            case '4':
-                std::cout << "return book to a library" << std::endl;
+			case '4':
+				std::cout << "return book to a library" << std::endl;
 				per.returnBook(pBorrowedBook);
 
-                break;
+				break;
 			case '5':
 				std::cout << "Print all books in library" << std::endl;
 				std::system("clear");
@@ -62,29 +58,31 @@ int main()
 
 				break;
 			}
-            default:
-                std::cout << "Exit" << std::endl;
-        }
+			default:
+				std::cout << "Exit" << std::endl;
+		}
 
-    }while (choice != '9');
+	} while (choice != '9');
 
-    system("clear");
+	system("clear");
 
-    return 0;
+	return 0;
 }
 
 char menu() {
-    char choice;
+	char choice;
 
-    std::cout << "Please make your selection" << std::endl;
-    std::cout << "Press number: " << std::endl;
-    std::cout << "1 - Set how many books can fit in to the library" << std::endl; // todo create function set size of library
-    std::cout << "2 - Add books to library" << std::endl; //todo create function to add new book to library
-    std::cout << "3 - Borrow book" << std::endl; //todo create user that can borrow book - user can list all books in library
-    std::cout << "4 - Return book" << std::endl; // todo create function that user can return book - user can list books he/she have
+	std::cout << "Please make your selection" << std::endl;
+	std::cout << "Press number: " << std::endl;
+	std::cout << "1 - Set how many books can fit in to the library" << std::endl; // todo create function set size of library
+	std::cout << "2 - Add books to library" << std::endl; //todo create function to add new book to library
+	std::cout << "3 - Borrow book" << std::endl; //todo create user that can borrow book - user can list all books in library
+	std::cout << "4 - Return book" << std::endl; // todo create function that user can return book - user can list books he/she have
 	std::cout << "5 - Print out all books" << std::endl;
 	std::cout << "6 - Print books borrowed by user" << std::endl;
 	std::cout << "9 - to Quit" << std::endl;
-    std::cin >> choice;
-    return choice;
+	std::cin >> choice;
+	return choice;
 }
+
+

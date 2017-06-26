@@ -4,26 +4,26 @@
 
 #ifndef CLIBRARYBOOKS_LIBRARAY_H
 #define CLIBRARYBOOKS_LIBRARAY_H
+
 #include <string>
+#include <vector>
 #include "Book.h"
 #include "Library.h"
 
 class Library
 {
 private:
-    int maxAmountOfBooks;
-    Book* pBook;
+	std::vector<Book*> pBook;
 
 public:
-    Library();
-    void setLibraySize(Book*& pBook, int maxSize);
-	void sizeInteger(int a);
-    void addBook2Lib(int i);
-    Book borrowBook(int i);
+	Library();
+	~Library();
+	void size(int a);
+	void addBook2Lib(int i);
+	Book *borrowBook(int i);
+	void returnBook(int i, Book* b);
 	void nullPlace(int i); // private function to delete books from Library index when borrowed
 
 	void printAll();
-	friend class Person;
-    ~Library();
 };
 #endif //CLIBRARYBOOKS_LIBRARAY_H

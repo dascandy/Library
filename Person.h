@@ -9,13 +9,11 @@
 class Person
 {
 protected:
-	Book   userBook;
+	Book *myBook = nullptr;
 public:
-	void borrowBookP(Book* pBB);
-	void returnBook(Book* pBB);
-	friend class Library;
-	void print();
-	void nullPlace();
+	void borrowBook(Book* pBB);
+	Book* returnBook();
+	void print() const;
 };
 
 
