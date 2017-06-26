@@ -25,8 +25,20 @@ void Person::print()
 
 void Person::returnBook(Book* pBB) {
 
-	pBB->ID = userBook.ID;
-	pBB->title = userBook.title;
-	pBB->author = userBook.author;
-	pBB->publicationYear = userBook.publicationYear;
+		pBB->ID = userBook.ID;
+		pBB->title = userBook.title;
+		pBB->author = userBook.author;
+		pBB->publicationYear = userBook.publicationYear;
+
+		// null space
+		nullPlace();
+
 }
+void Person::nullPlace()
+{
+	// assign NULL values to borrowed book
+	userBook.title = "Book borrowed";
+	userBook.author = "Book borrowed";
+	userBook.publicationYear = -9999; // book is borrowed -999 is magic number don't like this!!!
+
+};

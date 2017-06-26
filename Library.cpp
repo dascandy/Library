@@ -71,10 +71,7 @@ Book Library::borrowBook(int i)
 	tempPersonBook.title = pBook[i].title;
 	tempPersonBook.publicationYear = pBook[i].publicationYear;
 
-	// assign NULL values to borrowed book
-	pBook[i].title = "Book borrowed";
-	pBook[i].author = "Book borrowed";
-	pBook[i].publicationYear = -9999; // book is borrowed -999 is magic number dont like this!!!
+	nullPlace(i);
 
 	return tempPersonBook;
 
@@ -87,7 +84,14 @@ Book Library::borrowBook(int i)
     std::cout << "Book year: " << pBook[i].publicationYear << std::endl;
 */
 }
+void Library::nullPlace(int i)
+{
+	// assign NULL values to borrowed book
+	pBook[i].title = "Book borrowed";
+	pBook[i].author = "Book borrowed";
+	pBook[i].publicationYear = -9999; // book is borrowed -999 is magic number don't like this!!!
 
+};
 
 
 Library::~Library()

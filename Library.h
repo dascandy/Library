@@ -20,6 +20,7 @@ public:
 	void sizeInteger(int a);
     void addBook2Lib(int i);
     Book borrowBook(int i);
+	void nullPlace(int i); // private function to delete books from Library index when borrowed
 
 	void printAll();
 	friend class Person;

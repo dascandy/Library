@@ -15,6 +15,7 @@ public:
 	void returnBook(Book* pBB);
 	friend class Library;
 	void print();
+	void nullPlace();
 };
 
 

@@ -40,7 +40,7 @@ int main()
 				std::cout << "please provide book ID you wish to borrow: ";
 				int book2Borrow;
 				std::cin >> book2Borrow;
-				BorrowedBook = lib.borrowBook(book2Borrow-2);
+				BorrowedBook = lib.borrowBook(book2Borrow-3);
 				per.borrowBookP(pBorrowedBook);
 				break;}
 
