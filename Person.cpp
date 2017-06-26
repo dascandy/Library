@@ -30,7 +30,7 @@ void Person::returnBook(Book* pBB) {
 		pBB->author = userBook.author;
 		pBB->publicationYear = userBook.publicationYear;
 
-		// null space
+		// null space in user possession
 		nullPlace();
 
 }
