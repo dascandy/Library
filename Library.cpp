@@ -28,7 +28,6 @@ void Library::printAll()
 		{
 			std::cout << std::endl;
 			pBook[i]->print();
-			std::cout << "------------Next book------------" << std::endl;
 		} else {
 			std::cout << "Book" << i << "is borrowed" << std::endl;
 		}
